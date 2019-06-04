@@ -153,13 +153,13 @@ resource "azurerm_virtual_machine" "slave" {
   }
 
 }
-##################################################         Ngnix      ######################################
+##################################################         Nginx    ######################################
 #                                                                                                         #
 #                                                                                                         #
 #                                                                                                         #
 ###########################################################################################################
 resource "azurerm_virtual_machine" "web" {
-  name                  = "${var.Ngnixname}"
+  name                  = "${var.Nginxname}"
   location              = "${azurerm_resource_group.GROUPE-cloud.location}"
   resource_group_name   = "${azurerm_resource_group.GROUPE-cloud.name}"
   network_interface_ids = ["${azurerm_network_interface.testPub.id}"]
@@ -199,7 +199,7 @@ resource "azurerm_virtual_machine" "web" {
 
   }
   tags = {
-    environment = "${var.Ngnixname}"
+    environment = "${var.Nginxname}"
   }
 
 }

@@ -1,0 +1,35 @@
+---
+###############This playbook intall ngnix on centOS7 and Jenkins ,nexus,maven ######################
+#####################################################################################################
+
+- name: Install nginx and configure web proxy  
+  hosts: web
+  become: True
+  roles:
+    - nginx
+  tags:
+    - nginx
+
+- name: Install Jenkins and run it as a service
+  hosts: jenkins 
+  become: True
+  roles:
+    - jenkins 
+  tags:
+    - jenkins
+
+- name: Install Nexus and run it as a service
+  hosts: nexus 
+  become: True
+  roles:
+    - nexus 
+  tags:
+    - nexus
+
+- name: Install Maven
+  hosts: maven 
+  become: True
+  roles:
+    - maven 
+  tags:
+- maven
